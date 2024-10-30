@@ -65,6 +65,8 @@ First version of code in `Ticket Service`:
 - High cognitive complexity and Unreadable -> Very difficult to maintain
 - chance of a mistakes happening is very high
 - Lot of Duplicate code
+- Inflexible - Adding a new behaviour for one of the state becomes complicated and error prone
+- Violates Single responsibility principle. (`changeTicketState` is doing a lot more than just changing the state of the ticket, the method is also validating if the state transition is valid. (The validation logic should be decoupled ideally.)
 
 ### The advantages with refactoring such code and using the State Design pattern:
 - Flexible
@@ -72,5 +74,5 @@ First version of code in `Ticket Service`:
   - When you want to change the behaviour of one of the existing states, it is very easy, just navigate to the state you want to modify here `com/design_patterns/STATE` and change the behaviour, 
     - Doing this in the above `if-else` construct code is a night mare and very error prone.
 - Maintenance (Choose smartly): Though it is a bit of work to set it up initially, it helps us down the line when the code base grows, and the states increases. ( We should be smart in choosing when to pivot to using the SDP. if we are fairly clear that we would only have 2 states, it might not make a lot of sense.)
-- Obvious!, it solves the three problems i mentioned above. (Duplicate code is a bit arguable, if the behaviour is similar)
-
+- Follows **single responsibility principle.**
+- Obvious!, it solves the first three problems i mentioned above. (Duplicate code is a bit arguable, if the behaviour is similar)
