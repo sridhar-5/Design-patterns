@@ -65,6 +65,8 @@ First version of code in `Ticket Service`:
 - High cognitive complexity and Unreadable -> Very difficult to maintain
 - chance of a mistakes happening is very high
 - Lot of Duplicate code
+- Inflexible - Adding a new behaviour for one of the state becomes complicated and error prone
+- Violates Single responsibility principle. (`changeTicketState` is doing a lot more than just changing the state of the ticket, the method is also validating if the state transition is valid. (The validation logic should be decoupled ideally.)
 
 ### The advantages with refactoring such code and using the State Design pattern:
 - Flexible
